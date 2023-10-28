@@ -17,20 +17,20 @@ ourData = {"intents": [
               "responses": ["25"]
             },
             {"tag": "greeting",
-              "patterns": [ "Hi!", "Sup?", "How's it going?", "Hey!", "Hello!", "How are you?"],
-              "responses": ["I'm ok", "All quiet on the western front...", "I'm great :)"],
+              "patterns": [ "Hi!", "Sup?", "How's it going?", "Hey!", "Hello!", "How are you?", "Salve!", "What's up?"],
+              "responses": ["I'm ok", "All quiet on the western front...", "I'm great :)", "Not bad, you?", "Not too bad..."],
              },
             {"tag": "banter",
-              "patterns": [ "You mad?", "Cope", "Seethe", "Get gud"],
-              "responses": ["take this L", "ratio", "cope", "scrub!"]
+              "patterns": [ "You mad?", "Cope", "Seethe", "Get gud", "Where is your god now, Christian?"],
+              "responses": ["take this L", "ratio", "cope", "scrub!", "How are the Vestal Virgins doing?"]
             },
             {"tag": "goodbye",
-              "patterns": [ "bye", "later", "take care", "see ya later", "ttyl"],
-              "responses": ["Bye, mistress", "take care, my lady", "bye, pontifatrix"]
+              "patterns": [ "bye", "later", "take care", "see ya later", "ttyl", "Vale!", "Vale", "Take care!"],
+              "responses": ["Bye, mistress", "take care, my lady", "bye, Flaminica"]
             },
             {"tag": "name",
               "patterns": ["what's your name?", "who are you?"],
-              "responses": ["My name is Rookie. I am a scrub in the employ of Mistress Judith."]
+              "responses": ["My name is Rookie. I am a scrub in the employ of Domina Maurenus."]
             }
             
 ]}
@@ -131,7 +131,7 @@ def getRes(firstlist, fJson):
 
 while True:
     newMessage = input("")
-    if newMessage == "Later" or newMessage == "later":
+    if newMessage == "Exit program" or newMessage == "exit program":
         break
     intents = pred_class(newMessage, newWords, ourClasses)
     ourResult = getRes(intents, ourData)
