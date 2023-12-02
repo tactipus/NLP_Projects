@@ -37,11 +37,11 @@ username = os.getenv('USERNAME')
 password = os.getenv('PASSWORD')
 
 r = praw.Reddit(
-    client_id='qfci4cABi7N-VdIw46gvpw', \
-    client_secret='ZEQgPgJjExOUT-mK9SSqcuqxb4SKhQ', \
+    client_id='', \
+    client_secret='', \
     user_agent='Sentiment_B/X.X.X', \
-    username='l3ssthanher0', \
-    password='Up$hut243546', \
+    username='', \
+    password='', \
     check_for_async=False)
 
 # subreddit = r.subreddit('NPD')
