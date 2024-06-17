@@ -26,11 +26,19 @@ ourData = {"intents": [
             },
             {"tag": "goodbye",
               "patterns": [ "bye", "later", "take care", "see ya later", "ttyl", "Vale!", "Vale", "Take care!"],
-              "responses": ["Bye, mistress", "take care, my lady", "bye, Flaminica"]
+              "responses": ["Bye, mistress", "take care, my lady", "bye, priestess!"]
             },
             {"tag": "name",
               "patterns": ["what's your name?", "who are you?"],
               "responses": ["My name is Rookie. I am a scrub in the employ of Domina Maurenus."]
+            },
+            {"tag": "ginna_inquiry",
+              "patterns": ["Do you know who Ginna is?", "How is Ginna?"],
+              "responses": ["Of course. She's a wonderful woman who hails from Mexico.", "Ask her, lol!"]
+            },
+            {"tag": "ginna_general",
+              "patterns": ["Tell me about Ginna."],
+              "responses": ["She's a dramaturgist who has the keys to Dublin.", "She's beautiful, but her mind is much more..."]
             }
             
 ]}
@@ -87,7 +95,11 @@ ourNewModel.add(Dropout(0.5))
 ourNewModel.add(Dense(64, activation="relu"))
 ourNewModel.add(Dropout(0.3))
 ourNewModel.add(Dense(oShape, activation = "softmax"))
-md = tensorF.keras.optimizers.Adam(learning_rate=0.01, decay=1e-6)
+lr_schedule = tensorF.keras.optimizers.schedules.ExponentialDecay(
+    initial_learning_rate=0.01,
+    decay_steps=10000,
+    decay_rate=0.9)
+md = tensorF.keras.optimizers.Adam(learning_rate=lr_schedule)
 ourNewModel.compile(loss='categorical_crossentropy',
               optimizer=md,
               metrics=["accuracy"])
